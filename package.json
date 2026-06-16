@@ -1,0 +1,23 @@
+{
+  "name": "sicura-ai-backend",
+  "version": "1.0.0",
+  "description": "Backend engine for Sicura AI security agent",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "backend": "node server.js",
+    "frontend": "npm.cmd run dev --prefix frontend",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "test": "node test_pipeline.js"
+  },
+  "dependencies": {
+    "@armoriq/sdk": "^0.3.8",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
