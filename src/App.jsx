@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Home, Mail, Link, Briefcase, MessageSquare, FileText, 
   ShieldAlert, History, Settings, Info, Diamond, 
@@ -8,17 +8,35 @@ import {
 import './index.css';
 
 function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
   return (
     <div className="app-container">
+
+      {/* Floating menu button - shows only when sidebar is closed */}
+      {!isSidebarOpen && (
+        <button
+          className="floating-menu-btn"
+          onClick={() => setIsSidebarOpen(true)}
+          title="Open menu"
+        >
+          <Menu size={20} />
+        </button>
+      )}
+
       {/* Sidebar */}
-      <aside className="sidebar">
+      <aside className={`sidebar ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
         <div className="sidebar-header">
-          <div className="menu-btn"><Menu size={20} /></div>
+          <div className="menu-btn" onClick={() => setIsSidebarOpen(false)}>
+            <Menu size={20} />
+          </div>
           <div className="logo-container">
             <ShieldAlert size={24} className="logo-icon" />
             <span className="logo-text">Sicura <span className="logo-ai">AI</span></span>
           </div>
-          <div className="close-btn"><X size={20} /></div>
+          <div className="close-btn" onClick={() => setIsSidebarOpen(false)}>
+            <X size={20} />
+          </div>
         </div>
 
         <nav className="nav-menu">
@@ -114,13 +132,23 @@ function App() {
       {/* Main Content */}
       <main className="main-content">
         <div className="background-effect"></div>
-        
+
+        {/* Updated Glassmorphism Header */}
         <header className="top-header">
-          <div className="mobile-menu-btn"><Menu size={20} /></div>
+          <div className="header-logo">
+            <ShieldAlert size={22} className="logo-icon" />
+            <span className="logo-text">Sicura <span className="logo-ai">AI</span></span>
+          </div>
           <div className="header-actions">
-            <button className="action-btn"><Lock size={18} /></button>
-            <button className="action-btn"><History size={18} /></button>
-            <button className="action-btn"><InfoSquare size={18} /></button>
+            <button className="action-btn" title="Privacy & Security">
+              <Lock size={18} />
+            </button>
+            <button className="action-btn" title="History">
+              <History size={18} />
+            </button>
+            <button className="action-btn" title="About">
+              <InfoSquare size={18} />
+            </button>
           </div>
         </header>
 
