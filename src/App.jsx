@@ -1,17 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { 
   Home, Mail, Link, Briefcase, MessageSquare, FileText, 
   ShieldAlert, History, Settings, Info, Diamond, 
-  Menu, X, Lock, FileClock, Info as InfoSquare,
+  Menu, Lock, FileClock, Info as InfoSquare,
   Paperclip, Globe, Mic, Send, ChevronDown
 } from 'lucide-react';
 import './index.css';
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const cryptoSectionRef = useRef(null);
+  const auditSectionRef = useRef(null);
+  const threatSectionRef = useRef(null);
+  const mainContentRef = useRef(null);
+  const sidebarRef = useRef(null);
+
+  // Close sidebar when clicking anywhere outside it
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (isSidebarOpen && sidebarRef.current && !sidebarRef.current.contains(e.target)) {
+        setIsSidebarOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isSidebarOpen]);
+
+  const scrollToHome = () => {
+    mainContentRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToCrypto = () => {
+    cryptoSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const scrollToAudit = () => {
+    auditSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const scrollToThreat = () => {
+    threatSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <div className="app-container">
+      {/* Global background effect — fixed, covers entire viewport */}
+      <div className="background-effect"></div>
 
       {/* Floating menu button - shows only when sidebar is closed */}
       {!isSidebarOpen && (
@@ -25,7 +59,7 @@ function App() {
       )}
 
       {/* Sidebar */}
-      <aside className={`sidebar ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
+      <aside ref={sidebarRef} className={`sidebar ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
         <div className="sidebar-header">
           <div className="menu-btn" onClick={() => setIsSidebarOpen(false)}>
             <Menu size={20} />
@@ -33,9 +67,6 @@ function App() {
           <div className="logo-container">
             <ShieldAlert size={24} className="logo-icon" />
             <span className="logo-text">Sicura <span className="logo-ai">AI</span></span>
-          </div>
-          <div className="close-btn" onClick={() => setIsSidebarOpen(false)}>
-            <X size={20} />
           </div>
         </div>
 
@@ -120,34 +151,33 @@ function App() {
           </div>
         </nav>
 
-        <div className="upgrade-card">
-          <Diamond size={20} className="upgrade-icon" />
-          <div className="upgrade-text">
-            <span className="title">Upgrade to Pro</span>
-            <span className="subtitle">Unlock advanced features and priority scanning</span>
-          </div>
-        </div>
       </aside>
 
       {/* Main Content */}
-      <main className="main-content">
-        <div className="background-effect"></div>
+      <main className="main-content" ref={mainContentRef}>
 
         {/* Updated Glassmorphism Header */}
-        <header className="top-header">
-          <div className="header-logo">
+        <header className={`top-header ${isSidebarOpen ? 'header-shifted' : ''}`}>
+          <div className="header-logo" onClick={scrollToHome} style={{ cursor: 'pointer' }}>
             <ShieldAlert size={22} className="logo-icon" />
             <span className="logo-text">Sicura <span className="logo-ai">AI</span></span>
           </div>
           <div className="header-actions">
-            <button className="action-btn" title="Privacy & Security">
+            <button className="action-btn" title="Encryption" onClick={scrollToCrypto}>
               <Lock size={18} />
             </button>
-            <button className="action-btn" title="History">
+            <button className="action-btn" title="Recents" onClick={scrollToAudit}>
               <History size={18} />
             </button>
-            <button className="action-btn" title="About">
+            <button className="action-btn" title="Threat Analysis" onClick={scrollToThreat}>
               <InfoSquare size={18} />
+            </button>
+            <button
+              className="action-btn armoriq-btn"
+              title="ArmorIQ"
+              onClick={() => window.open('https://docs.armoriq.ai/platform', '_blank')}
+            >
+              <Link size={18} />
             </button>
           </div>
         </header>
@@ -194,6 +224,159 @@ function App() {
             <span>Your data is <span className="highlight">encrypted</span> • Private • Never stored</span>
           </div>
         </div>
+
+        {/* Crypto Bound Encryption Section */}
+        <section className="crypto-section" ref={cryptoSectionRef}>
+          <div className="section-heading">
+            <Lock size={28} className="section-heading-icon" />
+            <h2>Crypto Bound Encryption</h2>
+          </div>
+          <div className="crypto-window">
+            <p className="placeholder-text">
+              Encryption tools will appear here once connected to the backend.
+            </p>
+          </div>
+        </section>
+
+        {/* Recent Audit Logs Section */}
+        <section className="audit-section" ref={auditSectionRef}>
+          <div className="section-heading">
+            <History size={28} className="section-heading-icon" />
+            <h2>Recent Audit Logs</h2>
+          </div>
+
+          <div className="audit-grid">
+            {[
+              'risk-high',
+              'risk-medium',
+              'risk-low',
+              'risk-danger',
+              'risk-safe',
+              'risk-low',
+            ].map((riskClass, i) => (
+              <div className="audit-card" key={i}>
+                <div className={`audit-card-label ${riskClass}`} />
+                <div className="audit-card-body" />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Threat Analysis Verdict Section */}
+        <section className="threat-section" ref={threatSectionRef}>
+          <div className="section-heading">
+            <InfoSquare size={28} className="section-heading-icon" />
+            <h2>Threat Analysis Verdict</h2>
+          </div>
+
+          <div className="threat-card">
+            {/* Left side */}
+            <div className="threat-left">
+              {/* URL / input box */}
+              <div className="threat-input-box">
+                <span className="threat-input-placeholder">Paste URL, email, or message here...</span>
+              </div>
+
+              {/* LLM message response box */}
+              <div className="threat-message-box">
+                <span className="threat-message-placeholder">Analysis result will appear here...</span>
+              </div>
+            </div>
+
+            {/* Right side — Risk Score circle */}
+            <div className="threat-right">
+              <div className="risk-circle-wrapper">
+                <svg className="risk-circle-svg" viewBox="0 0 120 120">
+                  {/* Background ring */}
+                  <circle
+                    cx="60" cy="60" r="50"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.08)"
+                    strokeWidth="10"
+                  />
+                  {/* Foreground ring — empty for now, backend will set strokeDashoffset */}
+                  <circle
+                    cx="60" cy="60" r="50"
+                    fill="none"
+                    stroke="rgba(59,130,246,0.3)"
+                    strokeWidth="10"
+                    strokeDasharray="314"
+                    strokeDashoffset="314"
+                    strokeLinecap="round"
+                    transform="rotate(-90 60 60)"
+                  />
+                </svg>
+                {/* Score label inside circle */}
+                <div className="risk-circle-label">
+                  <span className="risk-score-value">--</span>
+                  <span className="risk-score-unit">Risk Score</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="site-footer">
+          <div className="footer-top">
+            <div className="footer-brand">
+              <div className="footer-logo">
+                <ShieldAlert size={34} className="logo-icon" />
+                <span className="logo-text">Sicura <span className="logo-ai">AI</span></span>
+              </div>
+              <p className="footer-tagline">TRUSTED. INTELLIGENT. AWARE.</p>
+            </div>
+
+            <div className="footer-columns">
+              <div className="footer-col">
+                <h4>Tools</h4>
+                <ul>
+                  <li>Email Analyzer</li>
+                  <li>URL Scanner</li>
+                  <li>Job Offer Analyzer</li>
+                  <li>Message Analyzer</li>
+                  <li>Document Analyzer</li>
+                  <li>Breach Checker</li>
+                </ul>
+              </div>
+
+              <div className="footer-col">
+                <h4>Platform</h4>
+                <ul>
+                  <li>Crypto Bound Encryption</li>
+                  <li>Recent Audit Logs</li>
+                  <li>Threat Analysis Verdict</li>
+                  <li>History</li>
+                </ul>
+              </div>
+
+              <div className="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                  <li>ArmorIQ Docs</li>
+                  <li>API Reference</li>
+                  <li>Settings</li>
+                </ul>
+              </div>
+
+              <div className="footer-col">
+                <h4>Company</h4>
+                <ul>
+                  <li>About Sicura AI</li>
+                  <li>Upgrade to Pro</li>
+                  <li>Contact</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="footer-bottom">
+            <span>© 2026 Sicura AI. All rights reserved.</span>
+            <span className="footer-encrypted">
+              <Lock size={12} /> Your data is encrypted • Private • Never stored
+            </span>
+          </div>
+        </footer>
       </main>
     </div>
   );

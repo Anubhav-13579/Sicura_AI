@@ -235,10 +235,22 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+
+.main-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
 }
 
 .background-effect {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -279,11 +291,12 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  position: absolute;
+  position: fixed;
   top: 16px;
-  left: 16px;
+  left: 90px;
   right: 16px;
   z-index: 100;
+  transition: left 0.35s ease;
 
   /* Floating pill glass effect */
   background: transparent;
@@ -292,6 +305,9 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 16px;
   box-shadow: none;
+}
+.header-shifted {
+  left: 296px;  /* sidebar open hone par shift ho jayega */
 }
 
 .header-logo {
@@ -338,9 +354,26 @@ body {
   box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
 }
 
+/* ArmorIQ red glossy button — last icon in header-actions */
+.armoriq-btn {
+  background: radial-gradient(circle at 30% 30%, var(--accent-blue), var(--accent-purple));
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4),
+              inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.armoriq-btn:hover {
+  background: radial-gradient(circle at 30% 30%, #60a5fa, #a78bfa);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(139, 92, 246, 0.55),
+              inset 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
 /* ─── Center Content ──────────────────────────────────── */
 .center-content {
-  flex: 1;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -566,6 +599,437 @@ body {
   transform: translateY(-1px);
 }
 
+/* ─── Crypto Bound Encryption Section ──────────────────── */
+.crypto-section {
+  min-height: 100vh;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 40px 80px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.section-heading-icon {
+  color: var(--accent-blue);
+  filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.5));
+}
+
+.section-heading h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.crypto-window {
+  width: 100%;
+  max-width: 680px;
+  min-height: 320px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.placeholder-text {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* ─── Recent Audit Logs Section ────────────────────────── */
+.audit-section {
+  min-height: 100vh;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 40px 80px;
+}
+
+.audit-grid {
+  width: 100%;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.audit-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35),
+              inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.audit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45),
+              inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* Rectangular label box at top of each card */
+.audit-card-label {
+  margin: 16px 16px 0 16px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.audit-card-label span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Risk level colors for label box */
+.risk-high {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #f87171;
+}
+
+.risk-medium {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+
+.risk-low {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+}
+
+.risk-danger {
+  background: rgba(236, 72, 153, 0.15);
+  border: 1px solid rgba(236, 72, 153, 0.35);
+  color: #f472b6;
+}
+
+.risk-safe {
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  color: #60a5fa;
+}
+
+.risk-unknown {
+  background: rgba(148, 145, 158, 0.15);
+  border: 1px solid rgba(148, 145, 158, 0.3);
+  color: #94919e;
+}
+
+/* Card body area below the label */
+.audit-card-body {
+  flex: 1;
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.audit-type {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.audit-content {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  word-break: break-all;
+  line-height: 1.4;
+}
+
+.audit-time {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: auto;
+}
+
+/* ─── Threat Analysis Verdict Section ──────────────────── */
+.threat-section {
+  min-height: 100vh;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 40px 80px;
+}
+
+/* Main card — left + right side by side */
+.threat-card {
+  width: 100%;
+  max-width: 900px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+              inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  padding: 32px;
+  display: flex;
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* ── Left side ── */
+.threat-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* URL / input placeholder box */
+.threat-input-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 16px 20px;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+}
+
+.threat-input-placeholder {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.25);
+  font-style: italic;
+}
+
+/* LLM response message box */
+.threat-message-box {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 20px;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.threat-message-placeholder {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.2);
+  font-style: italic;
+  text-align: center;
+}
+
+/* ── Right side — circle ── */
+.threat-right {
+  width: 200px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.risk-circle-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.risk-circle-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.risk-circle-label {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.risk-score-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.risk-score-unit {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Section dividers */
+.crypto-section,
+.audit-section,
+.threat-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+/* ─── Footer ────────────────────────────────────────────── */
+.site-footer {
+  position: relative;
+  z-index: 10;
+  background: rgba(10, 6, 20, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 90px 60px 40px;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer-top {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+  padding-bottom: 40px;
+}
+
+.footer-brand {
+  flex-shrink: 0;
+  max-width: 260px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.footer-logo .logo-icon {
+  color: var(--accent-blue);
+  fill: rgba(59, 130, 246, 0.2);
+}
+
+.footer-logo .logo-text {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.footer-tagline {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  letter-spacing: 1.5px;
+  font-weight: 500;
+}
+
+.footer-columns {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.footer-col h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 16px;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col ul li {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.2s ease;
+  width: fit-content;
+}
+
+.footer-col ul li:hover {
+  color: var(--accent-blue);
+}
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-bottom span {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.footer-encrypted {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-encrypted svg {
+  color: var(--accent-blue);
+}
+
+/* Footer responsive */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .footer-columns {
+    gap: 32px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 /* ─── Mobile ──────────────────────────────────────────── */
 @media (max-width: 768px) {
   .sidebar {
