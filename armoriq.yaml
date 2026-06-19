@@ -1,0 +1,24 @@
+version: v1
+identity:
+  api_key: ak_live_10351ee454ccae3eee6bc763f415cec1f5b0d93cb30ef98ff903337aadd6c76e
+  user_id: team-mavrix
+  agent_id: sicura-ai-agent
+environment: sandbox
+proxy:
+  url: https://proxy.armoriq.ai
+  timeout: 30
+  max_retries: 3
+mcp_servers: []
+policy:
+  allow:
+    - analyze_content
+    - call_gemini
+    - check_threat_intel
+    - save_record
+    - decode_qr
+  deny:
+    - delete_record
+    - external_network_call
+intent:
+  ttl_seconds: 300
+  require_csrg: true
