@@ -317,11 +317,11 @@ function App() {
         </section>
 
         {/* Footer */}
-        <footer className="site-footer">
+        <footer className={`site-footer ${isSidebarOpen ? 'footer-shifted' : ''}`}>
           <div className="footer-top">
             <div className="footer-brand">
               <div className="footer-logo">
-                <ShieldAlert size={34} className="logo-icon" />
+                <ShieldAlert size={44} className="logo-icon" />
                 <span className="logo-text">Sicura <span className="logo-ai">AI</span></span>
               </div>
               <p className="footer-tagline">TRUSTED. INTELLIGENT. AWARE.</p>

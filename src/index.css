@@ -844,6 +844,13 @@ body {
   font-style: italic;
   text-align: center;
 }
+.footer-shifted .footer-top {
+  gap: 30px;
+}
+
+.footer-shifted .footer-columns {
+  gap: 28px;
+}
 
 /* ── Right side — circle ── */
 .threat-right {
