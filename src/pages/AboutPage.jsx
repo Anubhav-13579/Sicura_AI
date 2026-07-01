@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import {
-  Shield, Zap, Eye, Users, Award, ExternalLink,
+  Shield, Zap, Eye, Users, Award, ExternalLink, X,
 } from 'lucide-react';
 import PageShell from '../components/PageShell';
 import SicuraLogo from '../components/SicuraLogo';
+import './HomePage.css';
 
 const FEATURES = [
   {
@@ -33,6 +35,8 @@ const TEAM = [
 ];
 
 export default function AboutPage() {
+  const [showTeamPopup, setShowTeamPopup] = useState(false);
+
   return (
     <PageShell className="page-shell-tool">
       <div className="about-page">
@@ -90,7 +94,12 @@ export default function AboutPage() {
           <h2><Users size={22} /> Team</h2>
           <div className="about-team-grid">
             {TEAM.map((member) => (
-              <div className="about-team-card page-animate-in" key={member.name}>
+              <div 
+                className="about-team-card page-animate-in" 
+                key={member.name}
+                onClick={() => setShowTeamPopup(true)}
+                style={{ cursor: 'pointer' }}
+              >
                 <div className="about-team-avatar">{member.name[0]}</div>
                 <div>
                   <strong>{member.name}</strong>
@@ -115,6 +124,78 @@ export default function AboutPage() {
           </a>
         </section>
       </div>
+
+      {/* Team Modal Popup */}
+      {showTeamPopup && (
+        <div className="team-modal-overlay" onClick={() => setShowTeamPopup(false)}>
+          <div className="team-modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="team-modal-header">
+              <h3>Team Mavrix Members</h3>
+              <button className="team-modal-close" onClick={() => setShowTeamPopup(false)}>
+                <X size={20} />
+              </button>
+            </div>
+            <div className="team-members-list">
+              {/* Leader: Anubhav Saxena */}
+              <div className="team-member-item leader">
+                <span className="member-role-tag">Leader</span>
+                <span className="member-name">Anubhav Saxena</span>
+                <a 
+                  href="https://www.linkedin.com/in/anubhav-saxena-b494502b4" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="member-linkedin-link"
+                >
+                  LinkedIn <ExternalLink size={12} />
+                </a>
+              </div>
+
+              {/* Teammate 1: Ashmit Saxena */}
+              <div className="team-member-item">
+                <span className="member-role-tag">Teammate</span>
+                <span className="member-name">Ashmit Saxena</span>
+                <a 
+                  href="https://www.linkedin.com/in/ashmit-saxena-43b491205?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="member-linkedin-link"
+                >
+                  LinkedIn <ExternalLink size={12} />
+                </a>
+              </div>
+
+              {/* Teammate 2: Anushka Pandey */}
+              <div className="team-member-item">
+                <span className="member-role-tag">Teammate</span>
+                <span className="member-name">Anushka Pandey</span>
+                <a 
+                  href="https://www.linkedin.com/in/anushka-pandey-5850a8414?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="member-linkedin-link"
+                >
+                  LinkedIn <ExternalLink size={12} />
+                </a>
+              </div>
+
+              {/* Teammate 3: Deep Jyoti Kumari */}
+              <div className="team-member-item">
+                <span className="member-role-tag">Teammate</span>
+                <span className="member-name">Deep Jyoti Kumari</span>
+                <a 
+                  href="https://www.linkedin.com/in/deepjyoti-kumari-16b655395?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="member-linkedin-link"
+                >
+                  LinkedIn <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </PageShell>
   );
 }
+

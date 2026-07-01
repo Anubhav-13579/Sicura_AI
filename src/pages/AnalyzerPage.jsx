@@ -3,6 +3,7 @@ import { useLocation, Navigate } from 'react-router-dom';
 import AnalyzerTool from '../components/AnalyzerTool';
 import PageShell from '../components/PageShell';
 import { ANALYZER_CONFIG } from '../config/navigation';
+import './HomePage.css';
 
 const ICONS = { Mail, Link, Briefcase, MessageSquare, FileText };
 

@@ -1,0 +1,1174 @@
+/* ==========================================================================
+   Sicura AI - Landing Page Premium Visual Upgrades
+   ========================================================================== */
+
+/* ─── Glowing Shield / Logo ─── */
+.glowing-shield {
+  color: transparent;
+  margin-bottom: 24px;
+  position: relative;
+  filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.5))
+          drop-shadow(0 0 35px rgba(139, 92, 246, 0.4)) !important;
+  animation: logo-neon-glow 4s infinite alternate ease-in-out !important;
+}
+
+@keyframes logo-neon-glow {
+  0% {
+    filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.45))
+            drop-shadow(0 0 25px rgba(139, 92, 246, 0.3));
+    transform: scale(1);
+  }
+  100% {
+    filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.8))
+            drop-shadow(0 0 50px rgba(236, 72, 153, 0.6))
+            drop-shadow(0 0 70px rgba(139, 92, 246, 0.4));
+    transform: scale(1.03);
+  }
+}
+
+/* ─── Main Title ─── */
+.main-title {
+  font-size: 3.5rem !important;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 60%, rgba(255, 255, 255, 0.7));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* ─── Input Box Styling ─── */
+.input-container {
+  background: rgba(14, 10, 26, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(24px) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.1),
+              0 0 20px rgba(139, 92, 246, 0.05) !important;
+  border-radius: 24px !important;
+  padding: 16px 20px !important;
+  transition: all 0.3s ease !important;
+}
+
+.input-container:focus-within {
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.2),
+              0 0 35px rgba(59, 130, 246, 0.25),
+              0 0 15px rgba(139, 92, 246, 0.15) !important;
+  transform: translateY(-1px);
+}
+
+/* ─── Privacy Notice Color Highlights ─── */
+.privacy-notice {
+  background: rgba(10, 5, 20, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  padding: 8px 20px !important;
+  margin-top: 24px !important;
+  font-size: 0.825rem !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.privacy-notice .encrypted {
+  color: #38bdf8 !important; /* Cyan-blue glow */
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+.privacy-notice .private {
+  color: #a78bfa !important; /* Soft purple glow */
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.4);
+}
+
+.privacy-notice .never-stored {
+  color: #f472b6 !important; /* Soft magenta glow */
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(244, 114, 182, 0.4);
+}
+
+/* ─── Scroll Down Indicator ─── */
+.scroll-indicator-container {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.scroll-indicator-container:hover {
+  opacity: 1;
+}
+
+.scroll-mouse {
+  width: 24px;
+  height: 38px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  position: relative;
+}
+
+.scroll-wheel {
+  width: 4px;
+  height: 8px;
+  background-color: #38bdf8;
+  border-radius: 2px;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll-wheel-anim 1.8s infinite ease-in-out;
+}
+
+@keyframes scroll-wheel-anim {
+  0% {
+    top: 6px;
+    opacity: 1;
+  }
+  50% {
+    top: 18px;
+    opacity: 0.2;
+  }
+  100% {
+    top: 6px;
+    opacity: 1;
+  }
+}
+
+.scroll-arrow {
+  animation: bounce-arrow 1.8s infinite ease-in-out;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes bounce-arrow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+/* Hide scroll indicator when scrolled down */
+@media (max-height: 700px) {
+  .scroll-indicator-container {
+    display: none;
+  }
+}
+
+/* ─── Sidebar Aesthetics Refinement ─── */
+.sidebar .nav-item:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.sidebar .nav-item.active {
+  background: rgba(59, 130, 246, 0.08) !important;
+  border-color: rgba(59, 130, 246, 0.25) !important;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15),
+              inset 0 1px 1px rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.sidebar .nav-item.active .title {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+/* Hide original background grid stars if we use canvas */
+.background-effect::before {
+  opacity: 0.15 !important; /* Tone down the static stars since we have flowing particles */
+}
+
+/* ─── Interactive Dropdown styling ─── */
+.auto-detect-dropdown {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  outline: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.03) !important; /* Extremely soft, almost invisible border */
+  background: rgba(255, 255, 255, 0.04) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.04) !important;
+}
+
+.auto-detect-dropdown:hover {
+  transform: scale(1.05) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(56, 189, 248, 0.15) !important; /* Soft cyan shadow outline */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4),
+              0 0 15px rgba(56, 189, 248, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.auto-detect-dropdown:focus {
+  transform: scale(1.05) !important;
+  border-color: rgba(139, 92, 246, 0.2) !important; /* Soft purple shadow outline */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5),
+              0 0 20px rgba(139, 92, 246, 0.3) !important;
+  background: #0a0514 !important; /* Exact match with main theme background */
+  color: #ffffff !important;
+}
+
+/* Dropdown Options List styling (to fix the solid white block) */
+.auto-detect-dropdown option {
+  background-color: #0a0514 !important; /* Exact match with main theme background */
+  color: #e2e8f0 !important; /* Clean premium text color */
+  padding: 12px 16px !important;
+  font-size: 0.85rem !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* ─── Analyzer Tool Card & Input Customizations ─── */
+.tool-input-card {
+  background: rgba(14, 10, 26, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(24px) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.1),
+              0 0 20px rgba(139, 92, 246, 0.05) !important;
+  border-radius: 24px !important;
+  padding: 20px 24px !important;
+  transition: all 0.3s ease !important;
+}
+
+.tool-input-card:focus-within {
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.2),
+              0 0 35px rgba(59, 130, 246, 0.25),
+              0 0 15px rgba(139, 92, 246, 0.15) !important;
+}
+
+/* Custom dark scrollbar for the textarea inside Analyzer Tool (Hidden visually, scrollable) */
+.tool-textarea {
+  scrollbar-width: none !important; /* Firefox */
+  background: transparent !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.tool-textarea::-webkit-scrollbar {
+  display: none !important; /* Chrome/Edge/Safari */
+}
+
+/* ─── Homepage Textarea Customizations (Hidden visually, scrollable) ─── */
+.home-textarea {
+  flex: 1 !important;
+  background: transparent !important;
+  border: none !important;
+  color: var(--text-primary) !important;
+  font-size: 1rem !important;
+  outline: none !important;
+  font-family: 'Inter', sans-serif !important;
+  resize: vertical !important; /* Allow the user to adjust height */
+  min-height: 80px !important;
+  max-height: 250px !important;
+  line-height: 1.5 !important;
+  scrollbar-width: none !important; /* Firefox */
+}
+
+.home-textarea::-webkit-scrollbar {
+  display: none !important; /* Chrome/Edge/Safari */
+}
+
+
+/* Align sparkles and textarea at the top */
+.input-prompt {
+  align-items: flex-start !important;
+}
+
+.input-prompt .sparkles {
+  margin-top: 4px !important;
+}
+
+/* ─── Plus Trigger Button & Popup Menu ─── */
+.plus-menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+.plus-trigger-btn {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: var(--text-primary) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  padding: 0 !important;
+  outline: none !important;
+}
+
+.plus-trigger-btn:hover {
+  transform: scale(1.08) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.2) !important;
+}
+
+.plus-trigger-btn.active {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)) !important;
+  border-color: transparent !important;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.4) !important;
+  transform: rotate(45deg) !important; /* Elegant plus-to-close rotation */
+}
+
+.plus-popup-menu {
+  position: absolute;
+  bottom: 42px; /* Float above the footer trigger */
+  left: 0;
+  background: rgba(20, 15, 35, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 16px !important;
+  padding: 8px !important;
+  width: 250px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6),
+              inset 0 1px 1px rgba(255, 255, 255, 0.1),
+              0 0 25px rgba(139, 92, 246, 0.15) !important;
+  backdrop-filter: blur(15px) !important;
+  z-index: 500 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  animation: popupSlideUp 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popupSlideUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.plus-menu-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 10px 14px !important;
+  border-radius: 10px !important;
+  background: transparent !important;
+  border: none !important;
+  color: var(--text-primary) !important;
+  font-size: 0.88rem !important;
+  font-family: 'Inter', sans-serif !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  width: 100% !important;
+}
+
+.plus-menu-item:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #38bdf8 !important;
+  transform: translateX(3px) !important;
+}
+
+.plus-menu-item svg {
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+}
+
+.plus-menu-item:hover svg {
+  color: #38bdf8;
+}
+
+.plus-menu-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 4px 0;
+}
+
+.plus-badge {
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+  margin-left: auto;
+}
+
+/* Adjust layout alignment for plus button inside the tool card footer */
+.tool-input-footer {
+  gap: 16px !important;
+}
+
+.tool-privacy {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+
+/* ─── Breach Checker Dark Input Row & Autofill Styling ─── */
+.breach-input-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  background: rgba(14, 10, 26, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 14px !important;
+  padding: 10px 16px !important;
+  transition: all 0.3s ease !important;
+  width: 100% !important;
+}
+
+.breach-input-row:focus-within {
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.25) !important;
+}
+
+.breach-email-input {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: #ffffff !important;
+  flex: 1 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.92rem !important;
+  padding: 0 !important;
+}
+
+/* Force dark background and white text on browser autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #0a0514 inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ─── Settings Select Dropdown Styling ─── */
+.settings-select {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  outline: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.03) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.04) !important;
+  border-radius: 10px !important;
+  padding: 8px 12px !important;
+  color: var(--text-primary) !important;
+  font-size: 0.85rem !important;
+  cursor: pointer !important;
+}
+
+.settings-select:hover {
+  transform: scale(1.05) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(56, 189, 248, 0.15) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4),
+              0 0 15px rgba(56, 189, 248, 0.2) !important;
+}
+
+.settings-select:focus {
+  transform: scale(1.05) !important;
+  border-color: rgba(139, 92, 246, 0.2) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5),
+              0 0 20px rgba(139, 92, 246, 0.3) !important;
+  background: #0a0514 !important;
+}
+
+.settings-select option {
+  background-color: #0a0514 !important;
+  color: #e2e8f0 !important;
+  padding: 12px 16px !important;
+  font-size: 0.85rem !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* ─── Team Modal / Teammate Popup Overlay ─── */
+.team-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10, 5, 20, 0.75);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.team-modal-content {
+  background: rgba(20, 15, 35, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 30px;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6),
+              inset 0 1px 1px rgba(255, 255, 255, 0.1),
+              0 0 40px rgba(139, 92, 246, 0.15);
+  animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.team-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 12px;
+}
+
+.team-modal-header h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ffffff, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.team-modal-close {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.team-modal-close:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.team-members-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.team-member-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.22s ease;
+}
+
+.team-member-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.team-member-item.leader {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+}
+
+.team-member-item.leader:hover {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.member-role-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.leader .member-role-tag {
+  background: rgba(59, 130, 246, 0.2);
+  color: #38bdf8;
+}
+
+.member-name {
+  font-weight: 500;
+  color: #ffffff;
+  flex: 1;
+  margin-left: 12px;
+}
+
+.leader .member-name {
+  font-weight: 600;
+  color: #38bdf8; /* Same glow-highlight color as leader */
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+.member-linkedin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: #a78bfa;
+  text-decoration: none;
+  transition: all 0.2s;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(167, 139, 250, 0.08);
+}
+
+.member-linkedin-link:hover {
+  color: #ffffff;
+  background: #8b5cf6;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
+}
+
+/* ─── Premium File & Image Previews ─── */
+.file-previews-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+  width: 100%;
+}
+
+.file-preview-item {
+  position: relative;
+  display: flex;
+}
+
+/* Image Thumbnail Preview */
+.image-preview-wrapper {
+  position: relative;
+  width: 96px;
+  height: 56px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.image-preview-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.image-preview-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Document Capsule Preview */
+.doc-preview-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 8px 14px;
+  min-width: 190px;
+  max-width: 260px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.doc-preview-wrapper:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.doc-preview-icon {
+  flex-shrink: 0;
+}
+
+.doc-icon-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.doc-icon-badge.ppt {
+  background: linear-gradient(135deg, #e04a2c, #b8341b);
+  box-shadow: 0 0 10px rgba(224, 74, 44, 0.3);
+}
+
+.doc-icon-badge.pdf {
+  background: linear-gradient(135deg, #f40f0f, #c20707);
+  box-shadow: 0 0 10px rgba(244, 15, 15, 0.3);
+}
+
+.doc-icon-badge.word {
+  background: linear-gradient(135deg, #1b5ebe, #104b9e);
+  box-shadow: 0 0 10px rgba(27, 94, 190, 0.3);
+}
+
+.doc-icon-badge.excel {
+  background: linear-gradient(135deg, #107c41, #0c5e31);
+  box-shadow: 0 0 10px rgba(16, 124, 65, 0.3);
+}
+
+.doc-icon-badge.generic {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+}
+
+.doc-preview-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.doc-name {
+  font-size: 0.825rem;
+  font-weight: 500;
+  color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.doc-type {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  margin-top: 1px;
+}
+
+/* Universal Delete Button */
+.remove-file-btn {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(15, 10, 25, 0.9);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.remove-file-btn:hover {
+  background: #ef4444;
+  border-color: transparent;
+  color: #ffffff;
+  transform: scale(1.15) rotate(90deg);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+/* Doc Remove Button (inside capsule, aligned to right) */
+.doc-preview-wrapper .remove-file-btn.doc-remove {
+  position: static;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.35);
+  width: 22px;
+  height: 22px;
+  margin-left: auto;
+  box-shadow: none;
+}
+
+.doc-preview-wrapper .remove-file-btn.doc-remove:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: none;
+}
+
+/* ─── Premium Authentication Screens ─── */
+.login-page-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10, 5, 20, 0.75);
+  backdrop-filter: blur(16px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.login-card {
+  background: rgba(20, 15, 35, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 40px;
+  width: 90%;
+  max-width: 440px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6),
+              inset 0 1px 1px rgba(255, 255, 255, 0.1),
+              0 0 45px rgba(139, 92, 246, 0.18);
+  animation: slideUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.login-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 24px;
+  align-self: flex-start;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.5px;
+}
+
+/* Auth forms and input groups */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.login-input-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.login-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.login-input-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+
+.login-input {
+  width: 100%;
+  background: rgba(14, 10, 26, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 12px !important;
+  padding: 12px 14px 12px 42px !important;
+  color: #ffffff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.9rem !important;
+  outline: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.login-input:focus {
+  border-color: rgba(59, 130, 246, 0.5) !important;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.25) !important;
+}
+
+.login-input.password-field {
+  padding-right: 42px !important;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 14px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.password-toggle-btn:hover {
+  color: #ffffff;
+}
+
+/* Helpers & Links */
+.login-helpers-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -4px;
+  margin-bottom: 4px;
+}
+
+.forgot-password-link {
+  font-size: 0.825rem;
+  color: #a78bfa;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.forgot-password-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(167, 139, 250, 0.3);
+}
+
+.password-warning {
+  font-size: 0.75rem;
+  color: #ef4444;
+  margin-top: -10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Submit & Social Login Buttons */
+.login-submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.login-submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.45);
+}
+
+.login-submit-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.login-divider-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.login-divider-row::before,
+.login-divider-row::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.login-divider-row::before {
+  margin-right: 16px;
+}
+
+.login-divider-row::after {
+  margin-left: 16px;
+}
+
+.google-btn {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.25s ease;
+}
+
+.google-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.google-icon-svg {
+  width: 18px;
+  height: 18px;
+}
+
+.auth-toggle-text {
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.auth-toggle-link {
+  color: #a78bfa;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 6px;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.auth-toggle-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(167, 139, 250, 0.3);
+}
+
+/* Success Card Form Reset */
+.reset-success-message {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 12px;
+  padding: 16px;
+  color: #34d399;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+/* ─── Logout Menu Button in Sidebar ─── */
+.logout-nav-item {
+  color: #ef4444 !important;
+  border: none !important;
+  background: transparent !important;
+  text-align: left !important;
+  width: 100% !important;
+  cursor: pointer !important;
+  margin-top: 10px !important;
+  transition: all 0.2s ease !important;
+}
+
+.logout-nav-item:hover {
+  background: rgba(239, 68, 68, 0.08) !important;
+  border-color: rgba(239, 68, 68, 0.15) !important;
+}
+
+.logout-nav-item.active {
+  background: rgba(239, 68, 68, 0.1) !important;
+  border-color: rgba(239, 68, 68, 0.25) !important;
+}
+
+/* ─── Sidebar Profile Card ─── */
+.sidebar-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  margin-top: 10px !important;
+  margin-bottom: 5px !important;
+  transition: all 0.22s ease !important;
+}
+
+.sidebar-profile-card:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.profile-avatar {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 10px !important;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)) !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 700 !important;
+  font-size: 0.825rem !important;
+  flex-shrink: 0 !important;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.25) !important;
+}
+
+.profile-details {
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 0 !important;
+  flex: 1 !important;
+  text-align: left !important;
+}
+
+.profile-name {
+  font-size: 0.825rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.profile-email {
+  font-size: 0.7rem !important;
+  color: var(--text-secondary) !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  margin-top: 2px !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+
+

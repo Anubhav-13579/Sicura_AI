@@ -5,6 +5,7 @@ import {
 import PageShell from '../components/PageShell';
 import { loadSettings, saveSettings } from '../utils/settings';
 import { clearHistory, loadHistory } from '../utils/history';
+import './HomePage.css';
 
 function Toggle({ checked, onChange, label, description }) {
   return (

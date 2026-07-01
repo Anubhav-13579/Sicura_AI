@@ -3,6 +3,7 @@ import { Search, Shield, AlertTriangle, CheckCircle } from 'lucide-react';
 import PageShell from '../components/PageShell';
 import { useAnalysis } from '../hooks/useAnalysis';
 import ThreatVerdict from '../components/ThreatVerdict';
+import './HomePage.css';
 
 const DUMMY_BREACHES = [
   { name: 'LinkedIn 2021', records: '700M', severity: 'high' },
