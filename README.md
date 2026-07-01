@@ -4,7 +4,7 @@ Sicura AI is an advanced, AI-powered cybersecurity platform designed to analyze 
 
 ## 🌐 Live Demo
 
-**Access the live, functional project here:** [https://sicura-ai.vercel.app](https://sicura-ai.vercel.app)
+**Access the live, functional project here:** [https://sicura-ai-v2.vercel.app/](https://sicura-ai-v2.vercel.app/)
 
 ## 🚀 Features
 
