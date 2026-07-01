@@ -1,26 +1,35 @@
-# React + Vite
+# Sicura AI 🛡️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sicura AI is an advanced, AI-powered cybersecurity platform designed to analyze threats, monitor potential breaches, and provide comprehensive security insights.
 
-Currently, two official plugins are available:
+## 🌐 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Access the live, functional project here:** [https://sicura-ai.vercel.app](https://sicura-ai.vercel.app)
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- **AI Threat Analyzer:** Real-time analysis of potential security threats and vulnerabilities.
+- **Breach Checker:** Quickly verify if credentials or systems have been compromised in known data breaches.
+- **Interactive Dashboard:** A sleek, modern interface with advanced visualizations (including particle wave animations) for seamless security monitoring.
+- **Real-time Insights:** Stay ahead of attacks with dynamic reporting and smart threat verdicts.
 
-Note: This will impact Vite dev & build performances.
+## 🛠️ Technology Stack
 
-## Expanding the ESLint configuration
+- **Frontend:** React, Vite
+- **Backend/API:** Python, Serverless Functions
+- **Deployment:** Vercel
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 💻 Running Locally
 
+To run the project on your local machine:
 
-
-yayayayayayayayyayayaya
-
-
-
-
+1. Install Node.js dependencies:
+   ```bash
+   npm install
+   ```
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   
+*(Note: Ensure you have your environment variables set up properly locally if required).*
